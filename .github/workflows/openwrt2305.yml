@@ -183,7 +183,7 @@ jobs:
         allowUpdates: true
         tag: ${{ env.TAG_TIME }}
         commit: main
-        token: ${{ secrets.RELEASE_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         body: |
           功能介绍：该版本luci为2305，内核版本6.12，目前包含passwall、mosdns、Docker、lucky、微信推送等基础插件，其他功能可以用docker来实现，满足普通用户使用了。
           [固件源码](https://github.com/coolsnowwolf/lede)
@@ -194,7 +194,7 @@ jobs:
     - name: clean up old workflows
       uses: Mattraks/delete-workflow-runs@main
       with:
-        token: ${{ secrets.RELEASE_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         retain_days: 180
         keep_minimum_runs: 10
 
@@ -205,6 +205,6 @@ jobs:
         keep_latest: 9
         delete_tags: true
       env:
-        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
    
